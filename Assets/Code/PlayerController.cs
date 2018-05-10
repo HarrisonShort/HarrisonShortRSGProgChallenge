@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour, IKillable
     private float nextMissile;
 
     // PowerUp Parameters
-    private bool SecondChancePowerUp = false;
+    public bool secondChancePowerUpApplied = false;
 
     void Start()
     {
@@ -87,14 +87,19 @@ public class PlayerController : MonoBehaviour, IKillable
     /// </summary>
     public void EnableSecondChancePowerUp()
     {
-        SecondChancePowerUp = true;
+        secondChancePowerUpApplied = true;
     }
 
     public void GetHit()
     {
+        if (secondChancePowerUpApplied)
+        {
+            secondChancePowerUpApplied = false;
+            return;
+        }
         
         // Play death animation
-        
+
         Destroy(gameObject);
         GameController.instance.EnableGameOver();
     }
