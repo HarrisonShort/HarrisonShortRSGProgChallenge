@@ -94,6 +94,11 @@ public class GameController : MonoBehaviour
                 SceneManager.LoadScene(mainSceneIndex);
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 
     /// <summary>
