@@ -36,7 +36,6 @@ public abstract class AbstractProjectile : MonoBehaviour
                 enemy.Die();
             }
 
-
             Destroy(gameObject);
         }
     }
