@@ -33,7 +33,7 @@ Two builds are included, one named "(Basic)" and the other "(Json)". The (Basic)
 
 Font used in the game: https://www.dafont.com/block.font
 
-Thank you again for providing me with the opportunity. If you have any questions, or would just like to get in touch, my details are below (please contact me via email if you need my phone number, as this repo is public).
+Thank you again for providing me with the opportunity. If you have any questions, or would just like to get in touch, my details are below (please contact me via email if you need my phone number, as this repo is public). I look forward to hearing from you!
 
 - Harrison Short
 
