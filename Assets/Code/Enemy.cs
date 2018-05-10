@@ -24,8 +24,6 @@ public class Enemy : MonoBehaviour, IKillable
         GameController.instance.IncreaseScore();
         Instantiate(deathParticles, transform.position, transform.rotation);
         Destroy(gameObject);
-        
-        // Play animation
     }
 
     /// <summary>

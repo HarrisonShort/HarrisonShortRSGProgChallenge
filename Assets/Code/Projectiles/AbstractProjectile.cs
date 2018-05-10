@@ -12,7 +12,7 @@ public abstract class AbstractProjectile : MonoBehaviour
 
     [SerializeField]
     [Tooltip("The speed that missiles travel")]
-    private float projectileSpeed = 0.05f;
+    private float projectileSpeed = 0.2f;
 
     void Start()
     {
