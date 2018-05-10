@@ -25,7 +25,9 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private GameObject scoreObject;
     [SerializeField]
-    private GameObject powerUpIcon;
+    private GameObject restartPromptObject;
+    [SerializeField]
+    private GameObject powerUpIconObject;
 
     private Text gameResultText;
     private Text scoreText;
@@ -45,7 +47,11 @@ public class GameController : MonoBehaviour
     // Get scene index to ensure we load correct scene each time
     private int mainSceneIndex;
 
-    //TODO: Add text colours for win and lose + animations?
+    // Provide animation to determine how long we should wait for the animations to finish
+    [Header("Other Parameters")]
+    [SerializeField]
+    [Tooltip("Provide animation to determine how long we should wait for the animations to finish")]
+    private AnimationClip sampleAnimation; 
 
     void Awake()
     {
@@ -102,7 +108,11 @@ public class GameController : MonoBehaviour
         isGameOver = true;
         gameResultText.text = textToDisplay;
         gameResultObject.SetActive(true);
-        Time.timeScale = 0;
+        restartPromptObject.SetActive(true);
+        gameResultObject.GetComponent<Animation>().Play("YouLostAnim");
+        restartPromptObject.GetComponent<Animation>().Play("RestartPromptFadeIn");
+
+        StartCoroutine(WaitForAnimationToStop());
     }
 
     /// <summary>
@@ -130,6 +140,14 @@ public class GameController : MonoBehaviour
     /// </summary>
     public void EnablePowerUpIcon(bool powerUpObtained)
     {
-        powerUpIcon.SetActive(powerUpObtained);
+        powerUpIconObject.SetActive(powerUpObtained);
+    }
+
+    IEnumerator WaitForAnimationToStop()
+    {
+        // Subtract 0.1f so animation doesn't reset
+        // TODO: Find better way of implementing this (Animator instead?)
+        yield return new WaitForSeconds(sampleAnimation.length - 0.1f);
+        Time.timeScale = 0;
     }
 }
