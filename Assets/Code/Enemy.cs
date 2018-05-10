@@ -18,10 +18,18 @@ public class Enemy : MonoBehaviour, IKillable
     [SerializeField]
     private GameObject deathParticles;
 
+    // Determine whether enemy is alive so one enemy cannot give multiple points
+    private bool isAlive = true;
+
     public void GetHit()
     {
+        
         DetermineChanceOfDroppingPowerUp();
-        GameController.instance.IncreaseScore();
+        if (isAlive)
+        {
+            GameController.instance.IncreaseScore();
+            isAlive = false;
+        }
         Instantiate(deathParticles, transform.position, transform.rotation);
         Destroy(gameObject);
     }

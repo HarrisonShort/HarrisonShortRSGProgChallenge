@@ -40,6 +40,9 @@ public abstract class AbstractProjectile : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Method that controls the projectiles movement based on a provided Vector3 direction
+    /// </summary>
     protected void ProjectileMovement(Vector3 direction)
     {
         projectileTransform.position += direction * projectileSpeed;

@@ -9,12 +9,15 @@ public abstract class AbstractPowerUp : MonoBehaviour
 {
     protected PlayerController player;
     protected bool pickedUp = false;
-
     protected Transform powerUpTransform;
 
     [SerializeField]
     [Tooltip("The speed downwards that the power up travels")]
     protected float dropSpeed = 0.05f;
+
+    [SerializeField]
+    [Tooltip("The distance below the player character that the power up should destroy itself")]
+    private float distanceFromPlayerToDestroy = 2.0f;
 
     protected void OnTriggerEnter2D(Collider2D collider)
     {
@@ -34,4 +37,15 @@ public abstract class AbstractPowerUp : MonoBehaviour
         powerUpTransform.position += Vector3.down * dropSpeed;
     }
 
+    /// <summary>
+    /// Method that allows the power up to destroy itself if 
+    /// it has been missed by the player
+    /// </summary>
+    protected void DestroySelfWhenPastPlayer()
+    {
+        if (powerUpTransform.position.y <= player.transform.position.y - distanceFromPlayerToDestroy)
+        {
+            Destroy(gameObject);
+        }
+    }
 }

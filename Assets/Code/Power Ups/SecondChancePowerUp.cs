@@ -23,5 +23,7 @@ public class SecondChancePowerUp : AbstractPowerUp
             player.EnableSecondChancePowerUp();
             Destroy(gameObject);
         }
+
+        DestroySelfWhenPastPlayer();
     }
 }
