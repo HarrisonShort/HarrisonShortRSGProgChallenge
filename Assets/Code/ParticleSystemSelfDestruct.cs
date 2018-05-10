@@ -8,18 +8,18 @@ using UnityEngine;
 /// </summary>
 public class ParticleSystemSelfDestruct : MonoBehaviour
 {
-    private ParticleSystem particleSystem;
+    private ParticleSystem thisParticleSystem;
 
     void Start()
     {
-        particleSystem = GetComponent<ParticleSystem>();
+        thisParticleSystem = GetComponent<ParticleSystem>();
     }
 
     void Update()
     {
-        if (particleSystem)
+        if (thisParticleSystem)
         {
-            if (!particleSystem.IsAlive())
+            if (!thisParticleSystem.IsAlive())
             {
                 Destroy(gameObject);
             }

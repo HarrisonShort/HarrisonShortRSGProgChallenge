@@ -36,6 +36,8 @@ public class PlayerController : MonoBehaviour, IKillable
     private Transform missileSpawnLocation;
     private float nextMissile;
 
+    private bool isAlive = true;
+
     // PowerUp Parameters
     private bool secondChancePowerUpApplied = false;
 
@@ -72,7 +74,10 @@ public class PlayerController : MonoBehaviour, IKillable
             horizontalInput = 0;
         }
 
-        playerTransform.position += Vector3.right * horizontalInput * playerSpeed;
+        if (isAlive)
+        {
+            playerTransform.position += Vector3.right * horizontalInput * playerSpeed;
+        }
     }
 
     /// <summary>
@@ -106,12 +111,15 @@ public class PlayerController : MonoBehaviour, IKillable
             Instantiate(secondChanceParticles, playerTransform.position, playerTransform.rotation);
             return;
         }
-        
-        
+
+        isAlive = false;
         StartCoroutine(WaitUntilParticlesDoneThenGameOver());
-        
     }
 
+    /// <summary>
+    /// Coroutine that allows the particle system to play, before
+    /// calling the EnableGameOver method in GameController
+    /// </summary>
     IEnumerator WaitUntilParticlesDoneThenGameOver()
     {
         Instantiate(deathParticles, playerTransform.position, playerTransform.rotation);
@@ -123,5 +131,16 @@ public class PlayerController : MonoBehaviour, IKillable
         yield return new WaitForSeconds(deathParticles.main.duration);
         Destroy(gameObject);
         GameController.instance.EnableGameOver();
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        // If the enemy has reached the bottom of the screen and collides with the player
+        Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+        if (enemy != null)
+        {
+            GetHit();
+            enemy.GetHit();
+        }
     }
 }

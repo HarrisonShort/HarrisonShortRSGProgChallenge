@@ -25,8 +25,6 @@ public class EnemyWaveController : MonoBehaviour
     [Tooltip("The rate at which the enemy can shoot missiles")]
     private float missileRate = 0.99f;
 
-    
-
     void Start ()
     {
         InvokeRepeating("MoveEnemyWave", 0.1f, enemyWaveSpeed);
