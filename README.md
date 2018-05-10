@@ -31,6 +31,14 @@
 
 Two builds are included, one named "(Basic)" and the other "(Json)". The (Basic) build features the specifications of the challenge itself, where the player wins after hitting a score of 10. The (Json) build finds the amount of enemies to kill and then makes that the new score target. Currently, there is only functionality to add a grid of enemies (number of waves (rows) by number of enemies (columns)). To edit the JSON file, navigate to: ...\HarrisonShortRSGProgChallenge\Builds\(JSON) Harrison Short RSG Programming Challenge\(JSON) Harrison Short RSG Programming Challenge_Data\StreamingAssets\Wave.json. The JSON file can be edited in various text-editing software, such as Notepad, or Visual Studio.
 
+**Controls:**
+
+*Movement:* A+D/Left+Right Arrow Keys
+
+*Fire (also restart game):* Left Mouse/Space Bar
+
+*Quit:* Escape
+
 Font used in the game: https://www.dafont.com/block.font
 
 Thank you again for providing me with the opportunity. If you have any questions, or would just like to get in touch, my details are below (please contact me via email if you need my phone number, as this repo is public). I look forward to hearing from you!
