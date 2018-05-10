@@ -11,6 +11,9 @@ public class EnemyWaveController : MonoBehaviour
 
     [SerializeField]
     private GameObject enemyMissile;
+
+    [SerializeField]
+    [Tooltip("The rate at which the enemy can shoot missiles")]
     private float missileRate = 0.977f; //why
 
 
