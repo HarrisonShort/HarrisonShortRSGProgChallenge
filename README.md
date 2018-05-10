@@ -6,7 +6,7 @@
 
 *-Entire project, include all code and period commits, are in this public GitHub repository*
 
-*-Player controls their character (represented with a green rectangles) fire missiles, move left and right*
+*-Player controls their character (represented with a green rectangle) to fire missiles and move left and right*
 
 *-Player must destroy enemies before they approach or they will lose*
 
@@ -14,9 +14,9 @@
 
 *-Score is displayed at the top of the screen*
 
-*-When player reaches 10 points, they will be prompted to restart the game*
+*-When player reaches 10 points, they win and will be prompted to restart the game*
 
-*-When player dies, they will also receive this prompt*
+*-When player dies, they lose and will also receive this prompt*
 
 
 **In addition, I have looked into some of the "Bonus Point" features for implementation. Namely:**
