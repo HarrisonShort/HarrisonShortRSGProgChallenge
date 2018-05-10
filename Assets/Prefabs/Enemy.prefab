@@ -241,3 +241,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40b7f149667d6ae45b120f588258cc0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  powerUpsToDrop:
+  - {fileID: 1431618119004548, guid: 83b4a124629085a43b5947b5304cedd3, type: 2}
+  chanceOfDrop: 0.5
+  deathParticles: {fileID: 1457117136299076, guid: 34ed34d26c6d7eb4fa569928b4b343fb,
+    type: 2}

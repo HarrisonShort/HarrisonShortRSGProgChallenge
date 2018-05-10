@@ -51,6 +51,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b748982814dfb24d8e434c66a3a0b68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyWaveSpeed: 0.5
+  enemyWaveDistance: 0.5
+  enemyWaveSpeed: 0.3
   enemyMissile: {fileID: 1354975171833874, guid: 3eb0cbb1f36c47240ba0f5af50239524,
     type: 2}
+  missileRate: 0.99
