@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     private Transform playerTransform;
 
+    [Header("Movement Parameters")]
     [SerializeField]
     private float playerSpeed = 0.2f;
     [SerializeField]
@@ -15,11 +16,15 @@ public class PlayerController : MonoBehaviour
     [Tooltip("The distance furthest right that the player can move")]
     private float rightBoundary = 7.5f; //TODO: Make this change to the size of the screen (dynamically too?)
 
+    [Header("Missile Parameters")]
     [SerializeField]
+    [Tooltip("The missile gameObject we want to spawn")]
     private GameObject missile;
-    private Transform missileSpawnLocation;
+    [SerializeField]
+    [Tooltip("The rate at which the player can fire missiles")]
     private float missileRate = 0.5f;
 
+    private Transform missileSpawnLocation;
     private float nextMissile;
 
     void Start()
