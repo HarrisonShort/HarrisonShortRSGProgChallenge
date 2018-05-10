@@ -27,11 +27,17 @@ public class PlayerController : MonoBehaviour, IKillable
     [Tooltip("The rate at which the player can fire missiles")]
     private float missileRate = 0.5f;
 
+    [Header("Particle Effect Parameters")]
+    [SerializeField]
+    private ParticleSystem secondChanceParticles;
+    [SerializeField]
+    private ParticleSystem deathParticles;
+
     private Transform missileSpawnLocation;
     private float nextMissile;
 
     // PowerUp Parameters
-    public bool secondChancePowerUpApplied = false;
+    private bool secondChancePowerUpApplied = false;
 
     void Start()
     {
@@ -97,11 +103,24 @@ public class PlayerController : MonoBehaviour, IKillable
         {
             secondChancePowerUpApplied = false;
             GameController.instance.EnablePowerUpIcon(false);
+            Instantiate(secondChanceParticles, playerTransform.position, playerTransform.rotation);
             return;
         }
         
-        // Play death animation
+        
+        StartCoroutine(WaitUntilParticlesDoneThenGameOver());
+        
+    }
 
+    IEnumerator WaitUntilParticlesDoneThenGameOver()
+    {
+        Instantiate(deathParticles, playerTransform.position, playerTransform.rotation);
+
+        // Get MeshRenderer and hide player, so it looks like they've blown up
+        MeshRenderer playerMesh = GetComponent<MeshRenderer>();
+        playerMesh.enabled = false;
+
+        yield return new WaitForSeconds(deathParticles.main.duration);
         Destroy(gameObject);
         GameController.instance.EnableGameOver();
     }
