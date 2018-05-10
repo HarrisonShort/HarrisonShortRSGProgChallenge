@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Class that controls the movement and shooting of the enemy wave
+/// </summary>
 public class EnemyWaveController : MonoBehaviour
 {
     private Transform enemyWaveTransform;
@@ -53,6 +56,7 @@ public class EnemyWaveController : MonoBehaviour
                 spawnedEnemyMissile.tag = tag;
             }
 
+            //TODO: make some sense of this
             if (enemy.position.y <= -4)
             {
                 // Kill player

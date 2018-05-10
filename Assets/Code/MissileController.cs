@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Class that controls missile movement and functionality
+/// Class that controls missile movement and destruction functionality
 /// </summary>
 public class MissileController : MonoBehaviour
 {

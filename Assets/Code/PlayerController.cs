@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Class that controls player's movement and shooting mechanics
+/// </summary>
 public class PlayerController : MonoBehaviour
 {
     private Transform playerTransform;
