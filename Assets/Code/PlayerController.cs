@@ -78,4 +78,11 @@ public class PlayerController : MonoBehaviour
             spawnedMissile.tag = tag;
         }
     }
+    public void Die()
+    {
+        // Play death animation
+        
+        Destroy(gameObject);
+        GameController.instance.EnableGameOver();
+    }
 }
