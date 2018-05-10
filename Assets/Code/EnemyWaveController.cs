@@ -44,12 +44,7 @@ public class EnemyWaveController : MonoBehaviour
 
         LimitEnemiesAndWavesToSpawn();
         SpawnWaves();
-
-        print(enemiesToSpawn + " " + wavesToSpawn);
-            //for (int i = 0; i < transform.childCount; i++)
-        //{
-        //    spawnPoints[i] = transform.GetChild(i).gameObject;
-        //}
+        GameController.instance.UpdateScoreToWin(enemiesToSpawn, wavesToSpawn);
     }
     
     /// <summary>
