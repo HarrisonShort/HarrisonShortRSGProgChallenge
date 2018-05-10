@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4539287449264478}
   - component: {fileID: 198625585594111654}
   - component: {fileID: 199673727580567648}
+  - component: {fileID: 114639821148211378}
   m_Layer: 0
   m_Name: SecondChanceParticles
   m_TagString: Untagged
@@ -41,6 +42,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &114639821148211378
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1457117136299076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90dd095f4ffb9ac42a2c353c64b5ba84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &198625585594111654
 ParticleSystem:
   m_ObjectHideFlags: 1
