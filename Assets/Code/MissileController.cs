@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Class that controls missile movement and destruction functionality
+/// </summary>
 public class MissileController : MonoBehaviour
 {
-
     private Transform missileTransform;
 
     [SerializeField]
+    [Tooltip("The speed that missiles travel")]
     private float missileSpeed = 0.2f;
 
     void Start ()
@@ -17,6 +20,7 @@ public class MissileController : MonoBehaviour
     
     void Update ()
     {
+        // Determine movement direction of missile based on assigned tag
         if (tag == "Player")
         {
             missileTransform.position += Vector3.up * missileSpeed;
@@ -27,7 +31,7 @@ public class MissileController : MonoBehaviour
         }
         else
         {
-            Debug.Log("Missile tag not defined.");
+            Debug.LogWarning("Missile tag not defined.");
         }
 
         // Destroy missile object once past screen
@@ -39,21 +43,27 @@ public class MissileController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        // Player-fired missile should destroy enemy 
+        // Player-fired missile should destroy Enemy 
         if (collider.tag != tag && collider.tag == "Enemy")
         {
-            Destroy(collider.gameObject);
-            Destroy(gameObject);
+            HitOpposition(collider.gameObject);
             GameController.instance.IncreaseScore();
-            // Increase player score
         }
         else if (collider.tag != tag && collider.tag == "Player")
         {
-            Destroy(collider.gameObject);
-            Destroy(gameObject);
-            print("You died");
+            HitOpposition(collider.gameObject);
             GameController.instance.EnableGameOver();
-            // Trigger life lost/game over
         }
+    }
+
+    /// <summary>
+    /// Method that destroys missile and opposing character when missile
+    /// hits. Opposing character for player is enemy, and vice versa. 
+    /// </summary>
+    /// <param name="oppositionToDestroy">The opposing character to destroy</param>
+    private void HitOpposition(GameObject oppositionToDestroy)
+    {
+        Destroy(oppositionToDestroy);
+        Destroy(gameObject);
     }
 }

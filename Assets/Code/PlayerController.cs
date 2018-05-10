@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Class that controls player's movement and shooting mechanics
+/// </summary>
 public class PlayerController : MonoBehaviour
 {
-
     private Transform playerTransform;
 
+    [Header("Movement Parameters")]
     [SerializeField]
     private float playerSpeed = 0.2f;
     [SerializeField]
@@ -16,11 +19,15 @@ public class PlayerController : MonoBehaviour
     [Tooltip("The distance furthest right that the player can move")]
     private float rightBoundary = 7.5f; //TODO: Make this change to the size of the screen (dynamically too?)
 
+    [Header("Missile Parameters")]
     [SerializeField]
+    [Tooltip("The missile gameObject we want to spawn")]
     private GameObject missile;
-    private Transform missileSpawnLocation;
+    [SerializeField]
+    [Tooltip("The rate at which the player can fire missiles")]
     private float missileRate = 0.5f;
 
+    private Transform missileSpawnLocation;
     private float nextMissile;
 
     void Start()
@@ -31,8 +38,22 @@ public class PlayerController : MonoBehaviour
     
     void FixedUpdate()
     {
+        PlayerMovement();
+    }
+
+    void Update()
+    {
+        FireMissile();
+    }
+
+    /// <summary>
+    /// Method that handles player's horizontal (i.e. only) movement
+    /// </summary>
+    private void PlayerMovement()
+    {
         float horizontalInput = Input.GetAxis("Horizontal");
 
+        // Do not allow player to move past left and right boundaries of screen
         if (playerTransform.position.x < leftBoundary && horizontalInput < 0)
         {
             horizontalInput = 0;
@@ -45,9 +66,12 @@ public class PlayerController : MonoBehaviour
         playerTransform.position += Vector3.right * horizontalInput * playerSpeed;
     }
 
-    void Update()
+    /// <summary>
+    /// Method that allows the player to fire a missile when they've pressed the button
+    /// </summary>
+    private void FireMissile()
     {
-        if(Input.GetButton("Fire1") && Time.time > nextMissile)
+        if (Input.GetButton("Fire1") && Time.time > nextMissile)
         {
             nextMissile = Time.time + missileRate;
             GameObject spawnedMissile = Instantiate(missile, missileSpawnLocation.position, missileSpawnLocation.rotation);
