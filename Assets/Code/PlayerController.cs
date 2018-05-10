@@ -90,8 +90,9 @@ public class PlayerController : MonoBehaviour, IKillable
         SecondChancePowerUp = true;
     }
 
-    public void Die()
+    public void GetHit()
     {
+        
         // Play death animation
         
         Destroy(gameObject);

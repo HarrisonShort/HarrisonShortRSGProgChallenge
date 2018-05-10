@@ -10,5 +10,5 @@ public interface IKillable
     /// <summary>
     /// Appropriate handle death of character
     /// </summary>
-    void Die();	
+    void GetHit();	
 }

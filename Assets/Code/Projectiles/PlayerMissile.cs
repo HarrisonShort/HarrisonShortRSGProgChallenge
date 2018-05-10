@@ -7,6 +7,6 @@ public class PlayerMissile : AbstractProjectile
     void Update ()
     {
         ProjectileMovement(Vector3.up);
-        DestroySelfWhenOffScreen(10.0f);
+        DestroySelfWhenOffScreen(true, 10.0f);
     }
 }

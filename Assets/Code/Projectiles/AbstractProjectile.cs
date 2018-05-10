@@ -12,7 +12,7 @@ public abstract class AbstractProjectile : MonoBehaviour
 
     [SerializeField]
     [Tooltip("The speed that missiles travel")]
-    private float projectileSpeed = 0.2f;
+    private float projectileSpeed = 0.05f;
 
     void Start()
     {
@@ -29,11 +29,11 @@ public abstract class AbstractProjectile : MonoBehaviour
             Enemy enemy = collider.GetComponent<Enemy>();
             if (player != null)
             {
-                player.Die();
+                player.GetHit();
             }
             else if (enemy != null)
             {
-                enemy.Die();
+                enemy.GetHit();
             }
 
             Destroy(gameObject);
@@ -45,12 +45,25 @@ public abstract class AbstractProjectile : MonoBehaviour
         projectileTransform.position += direction * projectileSpeed;
     }
 
-    protected void DestroySelfWhenOffScreen(float distanceToDestroySelf)
+    /// <summary>
+    /// Method that destroys the projectile once it is far enough off screen
+    /// TODO: Come up with more elegant solution
+    /// </summary>
+    protected void DestroySelfWhenOffScreen(bool playerShot, float distanceToDestroySelf)
     {
-        // Destroy missile object once past screen
-        if (projectileTransform.position.y >= distanceToDestroySelf) // determine by screen height rather than hard code
+        if (playerShot)
         {
-            Destroy(gameObject);
+            if (projectileTransform.position.y >= distanceToDestroySelf) // TODO: determine by screen height rather than hard code
+            {
+                Destroy(gameObject);
+            }
+        }
+        else
+        {
+            if (projectileTransform.position.y <= distanceToDestroySelf) // TODO: determine by screen height rather than hard code
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }
