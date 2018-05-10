@@ -20,9 +20,18 @@ public class LoadJSONData : MonoBehaviour
         jsonString = File.ReadAllText(path);
 
         WaveData testWave = JsonUtility.FromJson<WaveData>(jsonString);
-        print(testWave.Enemies);
 
+        // Find the component for EnemyWaveController and push JSON data to it
         enemyWaveController = GetComponent<EnemyWaveController>();
-        enemyWaveController.GetJSONData(testWave.Enemies, testWave.Waves);
+
+        if (enemyWaveController != null)
+        {
+            enemyWaveController.GetJSONData(testWave.Enemies, testWave.Waves);
+        }
+        else
+        {
+            Debug.LogWarning("Warning: There is no EnemyWaveController component on " + 
+                             "this object. Please make sure one is attached.");
+        }
     }
 }
