@@ -44,6 +44,7 @@ public class MissileController : MonoBehaviour
         {
             Destroy(collider.gameObject);
             Destroy(gameObject);
+            GameController.instance.IncreaseScore();
             // Increase player score
         }
         else if (collider.tag != tag && collider.tag == "Player")
@@ -51,6 +52,7 @@ public class MissileController : MonoBehaviour
             Destroy(collider.gameObject);
             Destroy(gameObject);
             print("You died");
+            GameController.instance.EnableGameOver();
             // Trigger life lost/game over
         }
     }
