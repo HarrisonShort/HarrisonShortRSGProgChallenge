@@ -56,3 +56,6 @@ MonoBehaviour:
   enemyMissile: {fileID: 1354975171833874, guid: 3eb0cbb1f36c47240ba0f5af50239524,
     type: 2}
   missileRate: 0.99
+  spawnPoints: []
+  enemyToSpawn: {fileID: 0}
+  distanceBetweenWaves: 1.5
