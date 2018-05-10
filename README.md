@@ -1,6 +1,6 @@
 # HarrisonShort RSG Programming Challenge Submission
 
-Thank you for giving me the opportunity to show my programming skills. I received "Unity 3," which tasked me with cloning the popular arcade game Space Invaders. In comparing to the task sheet provided, I have completed the following explicit tasks:
+**Thank you for giving me the opportunity to show my programming skills. I received "Unity 3," which tasked me with cloning the popular arcade game Space Invaders. In comparing to the task sheet provided, I have completed the following explicit tasks:**
 
 *-Implemented in C# in Unity*
 
@@ -19,7 +19,7 @@ Thank you for giving me the opportunity to show my programming skills. I receive
 *-When player dies, they will also receive this prompt*
 
 
-In addition, I have looked into some of the "Bonus Point" features for implementation. Namely:
+**In addition, I have looked into some of the "Bonus Point" features for implementation. Namely:**
 
 *-The game has particle effects when characters are destroyed*
 
@@ -35,7 +35,7 @@ Font used in the game: https://www.dafont.com/block.font
 
 Thank you again for providing me with the opportunity. If you have any questions, or would just like to get in touch, my details are below (please contact me via email if you need my phone number, as this repo is public). I look forward to hearing from you!
 
-- Harrison Short
+**Harrison Short**
 
 work.harrisonshort@gmail.com
 
