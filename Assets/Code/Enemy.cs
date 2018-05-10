@@ -15,13 +15,15 @@ public class Enemy : MonoBehaviour, IKillable
     [Tooltip("Chance of a power up dropping when this enemy dies")]
     private float chanceOfDrop = 0.5f;
 
+    [SerializeField]
+    private GameObject deathParticles;
+
     public void GetHit()
     {
         DetermineChanceOfDroppingPowerUp();
         GameController.instance.IncreaseScore();
+        Instantiate(deathParticles, transform.position, transform.rotation);
         Destroy(gameObject);
-        
-        // Play animation
     }
 
     /// <summary>
