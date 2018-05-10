@@ -66,7 +66,6 @@ public class GameController : MonoBehaviour
             Destroy(gameObject);
         }
 
-        // TODO: Go through and make sure there is checking for variable assigning
         gameResultText = gameResultObject.GetComponent<Text>();
         scoreText = scoreObject.GetComponent<Text>();
         mainSceneIndex = SceneManager.GetActiveScene().buildIndex;
@@ -77,13 +76,13 @@ public class GameController : MonoBehaviour
         // Display win
         if (score == scoreToWin)
         {
-            TriggerGameComplete(winString);
+            TriggerGameComplete(winString, Color.green);
         }
         
         // Display loss
         if (isPlayerDead)
         {
-            TriggerGameComplete(loseString);
+            TriggerGameComplete(loseString, Color.red);
         }
 
         // Let player restart game using the fire button when game is over 
@@ -103,10 +102,11 @@ public class GameController : MonoBehaviour
     /// the game time, so that no more movement occurs until game is reset.
     /// </summary>
     /// <param name="textToDisplay">The end-game text to display</param>
-    private void TriggerGameComplete(string textToDisplay)
+    private void TriggerGameComplete(string textToDisplay, Color colour)
     {
         isGameOver = true;
         gameResultText.text = textToDisplay;
+        gameResultText.color = colour;
         gameResultObject.SetActive(true);
         restartPromptObject.SetActive(true);
         gameResultObject.GetComponent<Animation>().Play("YouLostAnim");
@@ -143,6 +143,11 @@ public class GameController : MonoBehaviour
         powerUpIconObject.SetActive(powerUpObtained);
     }
 
+    /// <summary>
+    /// Coroutine that waits for the animations to stop before setting
+    /// Time.timeScale to 0
+    /// </summary>
+    /// <returns></returns>
     IEnumerator WaitForAnimationToStop()
     {
         // Subtract 0.1f so animation doesn't reset
