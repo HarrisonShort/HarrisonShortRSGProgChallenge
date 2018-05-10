@@ -239,6 +239,11 @@ Prefab:
       propertyPath: gameResultObject
       value: 
       objectReference: {fileID: 985290967}
+    - target: {fileID: 114008848530958208, guid: d7e5e488e97fd6841bef9d19aab8dd88,
+        type: 2}
+      propertyPath: scoreObject
+      value: 
+      objectReference: {fileID: 563353802}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d7e5e488e97fd6841bef9d19aab8dd88, type: 2}
   m_IsPrefabParent: 0
@@ -366,6 +371,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 094828f94cad26144b0ae1af20f01f1d, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &563353802 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1891743657338128, guid: 9d61f0f75dd22b34181136b26f084a6b,
+    type: 2}
+  m_PrefabInternal: {fileID: 817252679}
 --- !u!1001 &817252679
 Prefab:
   m_ObjectHideFlags: 0

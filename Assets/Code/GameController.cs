@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Class that keeps track of player score and controls the current state of the game 
@@ -15,6 +16,12 @@ public class GameController : MonoBehaviour
     private GameObject gameResultObject;
     private Text gameResultText;
 
+    [SerializeField]
+    private GameObject scoreObject;
+    private Text scoreText;
+
+    private bool isPlayerDead;
+    // Whether the player has won OR lost
     private bool isGameOver = false;
 
     [SerializeField]
@@ -22,6 +29,19 @@ public class GameController : MonoBehaviour
     [SerializeField]
     [Tooltip("The score needed to win the game (defined as 10 by challenge parameters)")]
     private int scoreToWin = 10;
+
+    [Header("Text Parameters")]
+    [SerializeField]
+    private string scoreDisplayString = "SCORE: ";
+    [SerializeField]
+    private string winString = "YOU WON!";
+    [SerializeField]
+    private string loseString = "YOU DIED.";
+
+    // Get scene index to ensure we load correct scene each time
+    private int mainSceneIndex;
+
+    //TODO: Add text colours for win and lose + animations?
 
     void Awake()
     {
@@ -37,46 +57,66 @@ public class GameController : MonoBehaviour
         }
 
         gameResultText = gameResultObject.GetComponent<Text>();
+        scoreText = scoreObject.GetComponent<Text>();
+        mainSceneIndex = SceneManager.GetActiveScene().buildIndex;
     }
     
     void Update ()
     {
-        //if game win
+        // Display win
         if (score == scoreToWin)
         {
-            TriggerGameComplete("YOU WON!");
+            TriggerGameComplete(winString);
         }
         
-        // if game lose
+        // Display loss
+        if (isPlayerDead)
+        {
+            TriggerGameComplete(loseString);
+        }
+
+        // Let player restart game using the fire button when game is over 
         if (isGameOver)
         {
-            TriggerGameComplete("YOU DIED.");
+            if (Input.GetButton("Fire1"))
+            {
+                Time.timeScale = 1;
+                SceneManager.LoadScene(mainSceneIndex);
+            }
         }
     }
 
+    /// <summary>
+    /// Method which updates the end-game text and then displays the
+    /// text on screen, prompting player to restart the game. Also stops
+    /// the game time, so that no more movement occurs until game is reset.
+    /// </summary>
+    /// <param name="textToDisplay">The end-game text to display</param>
     private void TriggerGameComplete(string textToDisplay)
     {
+        isGameOver = true;
         gameResultText.text = textToDisplay;
         gameResultObject.SetActive(true);
         Time.timeScale = 0;
     }
 
     /// <summary>
-    /// Public method allowing MissileController class to increase score when
-    /// a player missile successfully destroys an Enemy
+    /// Public method allowing MissileController class to increase score variable 
+    /// when a player missile successfully destroys an Enemy
     /// </summary>
     public void IncreaseScore()
     {
         score++;
+        scoreText.text = scoreDisplayString + score.ToString();
     }
 
     /// <summary>
     /// Public method allowing MissileController class to indicate that
-    /// player has died when they have been shot, therefore endin the game
+    /// player has died when they have been shot, therefore ending the game
     /// </summary>
     public void EnableGameOver()
     {
-        isGameOver = true;
+        isPlayerDead = true;
     }
 
 
