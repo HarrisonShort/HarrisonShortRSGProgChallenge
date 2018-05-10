@@ -46,8 +46,11 @@ public class MissileController : MonoBehaviour
             Destroy(gameObject);
             // Increase player score
         }
-        else
+        else if (collider.tag != tag && collider.tag == "Player")
         {
+            Destroy(collider.gameObject);
+            Destroy(gameObject);
+            print("You died");
             // Trigger life lost/game over
         }
     }
