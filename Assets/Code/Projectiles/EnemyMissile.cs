@@ -5,13 +5,13 @@ using UnityEngine;
 public class EnemyMissile : AbstractProjectile
 {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+	
 	
 	// Update is called once per frame
-	void Update () {
-		// movement and kill off screen
+	void Update ()
+    {
+        // movement and kill off screen
+        ProjectileMovement(Vector3.down);
+        //DestroySelfWhenOffScreen(-10.0f);
 	}
 }
