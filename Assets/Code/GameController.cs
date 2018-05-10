@@ -150,4 +150,14 @@ public class GameController : MonoBehaviour
         yield return new WaitForSeconds(sampleAnimation.length - 0.1f);
         Time.timeScale = 0;
     }
+
+    /// <summary>
+    /// Method to multiply the new amount of enemies
+    /// whenever a JSON file has been read and waves
+    /// are spawning from that data
+    /// </summary>
+    public void UpdateScoreToWin(int enemies, int waves)
+    {
+        scoreToWin = enemies * waves;
+    }
 }
