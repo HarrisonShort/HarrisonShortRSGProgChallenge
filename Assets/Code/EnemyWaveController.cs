@@ -57,13 +57,5 @@ public class EnemyWaveController : MonoBehaviour
             CancelInvoke();
             InvokeRepeating("MoveEnemyWave", 0.1f, 0.25f);
         }
-
-        if (enemyWaveTransform.childCount == 0)
-        {
-            // Player has won
-            // Pause game
-            // Should present restart game functionality
-            Time.timeScale = 0;
-        }
     }
 }
