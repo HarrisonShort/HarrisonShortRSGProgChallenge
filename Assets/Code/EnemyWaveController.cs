@@ -77,6 +77,7 @@ public class EnemyWaveController : MonoBehaviour
         }
 
         // Refactor out to own method, allow to have varying levels of difficulty
+		// Makes last enemy move fast, making it harder to kill and win the game
         if(enemyWaveTransform.childCount == 1)
         {
             CancelInvoke();
