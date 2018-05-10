@@ -88,6 +88,7 @@ public class PlayerController : MonoBehaviour, IKillable
     public void EnableSecondChancePowerUp()
     {
         secondChancePowerUpApplied = true;
+        GameController.instance.EnablePowerUpIcon(true);
     }
 
     public void GetHit()
@@ -95,6 +96,7 @@ public class PlayerController : MonoBehaviour, IKillable
         if (secondChancePowerUpApplied)
         {
             secondChancePowerUpApplied = false;
+            GameController.instance.EnablePowerUpIcon(false);
             return;
         }
         
