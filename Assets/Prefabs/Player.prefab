@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 23332576842905998}
   m_Layer: 0
   m_Name: Cannon
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -174,12 +174,12 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 2
 --- !u!61 &61005522673560924
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -244,3 +244,4 @@ MonoBehaviour:
   playerSpeed: 0.2
   leftBoundary: -7.5
   rightBoundary: 7.5
+  missile: {fileID: 1354975171833874, guid: 3eb0cbb1f36c47240ba0f5af50239524, type: 2}
