@@ -443,6 +443,26 @@ Prefab:
       propertyPath: m_FontData.m_Alignment
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 224635516934338738, guid: 9d61f0f75dd22b34181136b26f084a6b,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 224533808475920044, guid: 9d61f0f75dd22b34181136b26f084a6b,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224560919683109594, guid: 9d61f0f75dd22b34181136b26f084a6b,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 224001243341090110, guid: 9d61f0f75dd22b34181136b26f084a6b,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 111308635103935352, guid: 9d61f0f75dd22b34181136b26f084a6b, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 9d61f0f75dd22b34181136b26f084a6b, type: 2}
