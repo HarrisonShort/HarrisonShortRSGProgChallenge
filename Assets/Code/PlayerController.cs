@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
     private Transform playerTransform;
 
     [SerializeField]
@@ -31,8 +30,22 @@ public class PlayerController : MonoBehaviour
     
     void FixedUpdate()
     {
+        PlayerMovement();
+    }
+
+    void Update()
+    {
+        FireMissile();
+    }
+
+    /// <summary>
+    /// Method that handles player's horizontal (i.e. only) movement
+    /// </summary>
+    private void PlayerMovement()
+    {
         float horizontalInput = Input.GetAxis("Horizontal");
 
+        // Do not allow player to move past left and right boundaries of screen
         if (playerTransform.position.x < leftBoundary && horizontalInput < 0)
         {
             horizontalInput = 0;
@@ -45,9 +58,12 @@ public class PlayerController : MonoBehaviour
         playerTransform.position += Vector3.right * horizontalInput * playerSpeed;
     }
 
-    void Update()
+    /// <summary>
+    /// Method that allows the player to fire a missile when they've pressed the button
+    /// </summary>
+    private void FireMissile()
     {
-        if(Input.GetButton("Fire1") && Time.time > nextMissile)
+        if (Input.GetButton("Fire1") && Time.time > nextMissile)
         {
             nextMissile = Time.time + missileRate;
             GameObject spawnedMissile = Instantiate(missile, missileSpawnLocation.position, missileSpawnLocation.rotation);
