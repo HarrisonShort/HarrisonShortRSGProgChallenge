@@ -36,5 +36,7 @@ Font used in the game: https://www.dafont.com/block.font
 Thank you again for providing me with the opportunity. If you have any questions, or would just like to get in touch, my details are below (please contact me via email if you need my phone number, as this repo is public).
 
 - Harrison Short
+
 work.harrisonshort@gmail.com
+
 www.harrisonshort.net
