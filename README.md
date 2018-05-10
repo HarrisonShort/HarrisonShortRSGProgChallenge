@@ -29,7 +29,7 @@
 
 *-Players can access a JSON file in the game's StreamingAssets, and change the amount of waves and enemies that will spawn in those waves.* **More information is below:**
 
-Two builds are included, one named "(Basic)" and the other "(Json)". The (Basic) build features the specifications of the challenge itself, where the player wins after hitting a score of 10. The (Json) build finds the amount of enemies to kill and then makes that the new score target. Currently, there is only functionality to add a grid of enemies (number of waves (rows) by number of enemies (columns)). To edit the JSON file, navigate to: ...\HarrisonShortRSGProgChallenge\Builds\ (JSON) Harrison Short RSG Programming Challenge\ (JSON) Harrison Short RSG Programming Challenge_Data\StreamingAssets\Wave.json. The JSON file can be edited in various text-editing software, such as Notepad, or Visual Studio.
+Two builds are included, one named "(Basic)" and the other "(Json)". The (Basic) build features the specifications of the challenge itself, where the player wins after hitting a score of 10. The (Json) build finds the amount of enemies to kill and then makes that the new score target. Currently, there is only functionality to add a grid of enemies (number of waves (rows) by number of enemies (columns)). To edit the JSON file, navigate to: ...\HarrisonShortRSGProgChallenge\Builds\ (JSON) Harrison Short RSG Programming Challenge\ (JSON) Harrison Short RSG Programming Challenge_Data\StreamingAssets\Wave.json. The JSON file can be edited in various text-editing software, such as Notepad, or Visual Studio. Just change the numbers to what you desire. There is a maximum of 5 enemies by 10 waves, for the sake of performance and screen space.
 
 **Controls:**
 
