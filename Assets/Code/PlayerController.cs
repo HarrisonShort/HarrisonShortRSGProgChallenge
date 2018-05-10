@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// Class that controls player's movement and shooting mechanics
 /// </summary>
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IKillable
 {
     private Transform playerTransform;
 
@@ -29,6 +29,9 @@ public class PlayerController : MonoBehaviour
 
     private Transform missileSpawnLocation;
     private float nextMissile;
+
+    // PowerUp Parameters
+    private bool SecondChancePowerUp = false;
 
     void Start()
     {
@@ -78,6 +81,15 @@ public class PlayerController : MonoBehaviour
             spawnedMissile.tag = tag;
         }
     }
+
+    /// <summary>
+    /// Allows the Second Chance Power Up to enable
+    /// </summary>
+    public void EnableSecondChancePowerUp()
+    {
+        SecondChancePowerUp = true;
+    }
+
     public void Die()
     {
         // Play death animation
