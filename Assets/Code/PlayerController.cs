@@ -16,14 +16,20 @@ public class PlayerController : MonoBehaviour
     [Tooltip("The distance furthest right that the player can move")]
     private float rightBoundary = 7.5f; //TODO: Make this change to the size of the screen (dynamically too?)
 
+    [SerializeField]
+    private GameObject missile;
+    private Transform missileSpawnLocation;
+    private float missileRate = 0.5f;
 
+    private float nextMissile;
 
-    void Start ()
+    void Start()
     {
         playerTransform = GetComponent<Transform>();
+        missileSpawnLocation = playerTransform;
     }
     
-    void Update ()
+    void FixedUpdate()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
 
@@ -37,5 +43,15 @@ public class PlayerController : MonoBehaviour
         }
 
         playerTransform.position += Vector3.right * horizontalInput * playerSpeed;
+    }
+
+    void Update()
+    {
+        if(Input.GetButton("Fire1") && Time.time > nextMissile)
+        {
+            nextMissile = Time.time + missileRate;
+            GameObject spawnedMissile = Instantiate(missile, missileSpawnLocation.position, missileSpawnLocation.rotation);
+            spawnedMissile.tag = tag;
+        }
     }
 }
