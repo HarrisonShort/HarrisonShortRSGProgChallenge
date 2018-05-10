@@ -55,13 +55,6 @@ public class EnemyWaveController : MonoBehaviour
                 GameObject spawnedEnemyMissile = Instantiate(enemyMissile, enemy.position, enemy.rotation);
                 spawnedEnemyMissile.tag = tag;
             }
-
-            //TODO: make some sense of this
-            if (enemy.position.y <= -4)
-            {
-                // Kill player
-                // Pause game time
-            }
         }
 
         // Refactor out to own method, allow to have varying levels of difficulty
