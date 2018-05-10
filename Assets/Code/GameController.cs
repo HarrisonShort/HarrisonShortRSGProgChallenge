@@ -12,23 +12,21 @@ public class GameController : MonoBehaviour
 {
     public static GameController instance;
 
-    [SerializeField]
-    private GameObject gameResultObject;
-    private Text gameResultText;
-
-    [SerializeField]
-    private GameObject scoreObject;
-    private Text scoreText;
-
-    private bool isPlayerDead;
-    // Whether the player has won OR lost
-    private bool isGameOver = false;
-
+    [Header("Score Parameters")]
     [SerializeField]
     private int score = 0;
     [SerializeField]
     [Tooltip("The score needed to win the game (defined as 10 by challenge parameters)")]
     private int scoreToWin = 10;
+
+    [Header("UI Element Objects")]
+    [SerializeField]
+    private GameObject gameResultObject;
+    [SerializeField]
+    private GameObject scoreObject;
+
+    private Text gameResultText;
+    private Text scoreText;
 
     [Header("Text Parameters")]
     [SerializeField]
@@ -38,6 +36,10 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private string loseString = "YOU DIED.";
 
+    private bool isPlayerDead = false;
+    // Whether the player has won OR lost
+    private bool isGameOver = false;
+    
     // Get scene index to ensure we load correct scene each time
     private int mainSceneIndex;
 
@@ -56,6 +58,7 @@ public class GameController : MonoBehaviour
             Destroy(gameObject);
         }
 
+        // TODO: Go through and make sure there is checking for variable assigning
         gameResultText = gameResultObject.GetComponent<Text>();
         scoreText = scoreObject.GetComponent<Text>();
         mainSceneIndex = SceneManager.GetActiveScene().buildIndex;
@@ -118,6 +121,4 @@ public class GameController : MonoBehaviour
     {
         isPlayerDead = true;
     }
-
-
 }

@@ -51,6 +51,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d45dba2fbe24814b92e1fac2a47aca3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameResultObject: {fileID: 0}
   score: 0
   scoreToWin: 10
+  gameResultObject: {fileID: 0}
+  scoreObject: {fileID: 0}
+  scoreDisplayString: 'SCORE: '
+  winString: YOU WON!
+  loseString: YOU DIED.
