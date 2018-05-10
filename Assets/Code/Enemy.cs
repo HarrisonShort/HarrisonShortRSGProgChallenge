@@ -7,33 +7,41 @@ using UnityEngine;
 /// </summary>
 public class Enemy : MonoBehaviour, IKillable
 {
+    // Array of different powerups that can be dropped
+    [SerializeField]
+    private GameObject[] powerUpsToDrop;
+
+    [SerializeField]
+    [Tooltip("Chance of a power up dropping when this enemy dies")]
+    private float chanceOfDrop = 0.5f;
+
     public void Die()
     {
-        Destroy(gameObject);
+        DetermineChanceOfDroppingPowerUp();
         GameController.instance.IncreaseScore();
+        Destroy(gameObject);
+        
         // Play animation
-
-        // Determine possibility of dropping item and drop item if it works
-
-
     }
 
     /// <summary>
     /// Determines the likelihood of an enemy dropping a power up
     /// when killed.
     /// </summary>
-    private void DetermineChanceOfDroppingPowerUp(GameObject enemyKilled)
+    private void DetermineChanceOfDroppingPowerUp()
     {
-        //if (Random.Range(0f, 1f) > chanceOfDrop)
-        //{
-        //    EnemyWaveController enemy = enemyKilled.GetComponent<EnemyWaveController>();
-        //    print("test");
-        //    if (enemy != null)
-        //    {
-        //        enemy.DropPowerUp();
-        //        print("test2");
+        if (Random.Range(0f, 1f) > chanceOfDrop)
+        {
+            DropPowerUp();
+        }
+    }
 
-        //    }
-        //}
+    private void DropPowerUp()
+    {
+        if (powerUpsToDrop.Length >= 1)
+        {
+            Instantiate(powerUpsToDrop[0], transform.position, transform.rotation);
+
+        }
     }
 }

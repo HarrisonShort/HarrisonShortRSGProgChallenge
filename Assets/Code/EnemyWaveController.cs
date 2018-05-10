@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Class that controls the movement and shooting of the enemy wave
+/// Class that controls the movement and shooting of the entire enemy wave
 /// </summary>
 public class EnemyWaveController : MonoBehaviour
 {
@@ -24,6 +24,8 @@ public class EnemyWaveController : MonoBehaviour
     [SerializeField]
     [Tooltip("The rate at which the enemy can shoot missiles")]
     private float missileRate = 0.99f;
+
+    
 
     void Start ()
     {
