@@ -43,9 +43,13 @@ public abstract class AbstractPowerUp : MonoBehaviour
     /// </summary>
     protected void DestroySelfWhenPastPlayer()
     {
-        if (powerUpTransform.position.y <= player.transform.position.y - distanceFromPlayerToDestroy)
+        if (player != null)
         {
-            Destroy(gameObject);
+            if (powerUpTransform.position.y <= player.transform.position.y - distanceFromPlayerToDestroy)
+            {
+                Destroy(gameObject);
+            }
         }
+        
     }
 }

@@ -14,10 +14,10 @@ public class PlayerController : MonoBehaviour, IKillable
     private float playerSpeed = 0.2f;
     [SerializeField]
     [Tooltip("The distance furthest left that the player can move")]
-    private float leftBoundary = -7.5f; //TODO: Make this change to the size of the screen (dynamically too?)
+    private float leftBoundary = -7.5f; // TODO: Make this change to the size of the screen
     [SerializeField]
     [Tooltip("The distance furthest right that the player can move")]
-    private float rightBoundary = 7.5f; //TODO: Make this change to the size of the screen (dynamically too?)
+    private float rightBoundary = 7.5f; // TODO: Make this change to the size of the screen
 
     [Header("Missile Parameters")]
     [SerializeField]
