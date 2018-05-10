@@ -18,6 +18,7 @@ Thank you for giving me the opportunity to show my programming skills. I receive
 
 -When player dies, they will also receive this prompt
 
+
 In addition, I have looked into some of the "Bonus Point" features for implementation. Namely:
 
 -The game has particle effects when characters are destroyed
@@ -26,4 +27,4 @@ In addition, I have looked into some of the "Bonus Point" features for implement
 
 -A power up (named Second Chance, which allows the player to take an additional hit), has been implemented
 
--Players can 
+-Players can access a JSON file in the game's StreamingAssets, and change the 
