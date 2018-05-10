@@ -24,6 +24,8 @@ public class GameController : MonoBehaviour
     private GameObject gameResultObject;
     [SerializeField]
     private GameObject scoreObject;
+    [SerializeField]
+    private GameObject powerUpIcon;
 
     private Text gameResultText;
     private Text scoreText;
@@ -120,5 +122,14 @@ public class GameController : MonoBehaviour
     public void EnableGameOver()
     {
         isPlayerDead = true;
+    }
+
+    /// <summary>
+    /// Toggles the power up UI icon in the top right of the screen,
+    /// which allows the player to see when they have a power up
+    /// </summary>
+    public void EnablePowerUpIcon(bool powerUpObtained)
+    {
+        powerUpIcon.SetActive(powerUpObtained);
     }
 }
