@@ -2,7 +2,7 @@
 This was a programming challenge that I undertook in May 2018. Feel free to download and play around with this, but please keep in mind it is not an adequate representation of my current skills as a Unity developer.
 Feel free to contact me at work.harrisonshort@gmail.com if you're interested in seeing examples of more up to date work. Thanks!
 
-**Original ReadMe:**
+# Original ReadMe:
 # HarrisonShort RSG Programming Challenge Submission
 
 **Thank you for giving me the opportunity to show my programming skills. I received "Unity 3," which tasked me with cloning the popular arcade game Space Invaders. In comparing to the task sheet provided, I have completed the following explicit tasks:**
